@@ -12,6 +12,7 @@
     "react-scripts": "^5.0.1"
   },
   "scripts": {
+    "start": "env-cmd -e development react-scripts start",
     "start:dev": "env-cmd -e development react-scripts start",
     "start:prod": "env-cmd -e production react-scripts start",
     "build": "react-scripts build",
