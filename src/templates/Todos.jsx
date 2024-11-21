@@ -130,13 +130,3 @@ const Todos = () => {
 
 export default Todos;
 
-
-
-
-
-// .en-cmdrc 
-
-
-
-// .env.exemple 
-
