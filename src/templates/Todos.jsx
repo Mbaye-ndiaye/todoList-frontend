@@ -129,3 +129,31 @@ const Todos = () => {
 };
 
 export default Todos;
+
+
+
+
+
+// .en-cmdrc 
+
+// {
+//   "development": {
+//     "REACT_APP_API_URL": "http://localhost:8080/api/",
+//     "REACT_APP_API_IMG_URL": "http://localhost:8080/"
+//   },
+//   "recette": {
+//     "REACT_APP_API_URL": "",
+//     "REACT_APP_API_IMG_URL": ""
+//   },
+//   "production": {
+//     "REACT_APP_API_URL": "https://todolist-backend-hpsk.onrender.com/api/",
+//     "REACT_APP_API_IMG_URL": "https://todolist-backend-hpsk.onrender.com/"
+//   }
+// }
+
+
+// .env.exemple 
+
+// REACT_API_URL="http://localhost:8080/api/"
+// REACT_API_LOCAL_URL="http://localhost:8080/api/"
+// REACT_API_PROD_URL="http://prod/api/"
