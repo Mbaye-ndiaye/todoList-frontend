@@ -7,6 +7,7 @@ const Todos = () => {
   const [inputValue, setInputValue] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -18,7 +19,7 @@ const Todos = () => {
 
   const fetchTask = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/todos/');
+      const response = await axios.get(process.env.REACT_APP_API_URL + 'todos/');
       setTask(response.data);
     } catch (error) {
       console.log('error:', error);
@@ -30,7 +31,7 @@ const Todos = () => {
       setLoading(true);
       setError(null);
       if (inputValue.trim() !== '') {
-        const response = await axios.post('http://127.0.0.1:8000/api/todos/add', {
+        const response = await axios.post(process.env.REACT_APP_API_URL + 'todos/add', {
           title: inputValue,
           completed: false,
         });
@@ -49,7 +50,7 @@ const Todos = () => {
     try {
       const taskUpdate = tasks.find((task) => task.id === taskId);
       if (taskUpdate) {
-        const response = await axios.put(`http://127.0.0.1:8000/api/todos/${taskId}/update`, {
+        const response = await axios.put( process.env.REACT_APP_API_URL + `${taskId}/update`, {
           completed: !taskUpdate.completed,
         });
         const updatedTasks = tasks.map((task) =>
@@ -67,7 +68,7 @@ const Todos = () => {
 
   const deleteTask = async (taskId) => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/todos/${taskId}/delete`);
+      await axios.delete( process.env.REACT_APP_API_URL + `${taskId}/delete`);
       setTask(tasks.filter((task) => task.id !== taskId));
     } catch (error) {
       setError("An error occurred while deleting the task.");
