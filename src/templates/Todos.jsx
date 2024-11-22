@@ -19,7 +19,7 @@ const Todos = () => {
 
   const fetchTask = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}todos/`);
+      const response = await axios.get(process.env.REACT_APP_API_URL + 'todos/');
       setTask(response.data);
     } catch (error) {
       console.log('error:', error);
@@ -35,7 +35,6 @@ const Todos = () => {
           title: inputValue,
           completed: false,
         });
-        console.log("process.env.REACT_APP_API_URL", process.env.REACT_APP_API_URL);
         setTask([...tasks, response.data]);
         setInputValue('');
       }
@@ -51,7 +50,7 @@ const Todos = () => {
     try {
       const taskUpdate = tasks.find((task) => task.id === taskId);
       if (taskUpdate) {
-        const response = await axios.put( `${process.env.REACT_APP_API_URL} + ${taskId}/update`, {
+        const response = await axios.put( process.env.REACT_APP_API_URL + `${taskId}/update`, {
           completed: !taskUpdate.completed,
         });
         const updatedTasks = tasks.map((task) =>
@@ -69,7 +68,7 @@ const Todos = () => {
 
   const deleteTask = async (taskId) => {
     try {
-      await axios.delete( `${process.env.REACT_APP_API_URL} + ${taskId}/delete`);
+      await axios.delete( process.env.REACT_APP_API_URL + `${taskId}/delete`);
       setTask(tasks.filter((task) => task.id !== taskId));
     } catch (error) {
       setError("An error occurred while deleting the task.");
