@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { MdDelete, MdEdit } from "react-icons/md";
+import { FaPlus } from "react-icons/fa";
 
 const Todos = () => {
   const [tasks, setTask] = useState([]);
@@ -96,9 +97,9 @@ const Todos = () => {
         />
         <button
           type="submit"
-          className="bg-emerald-500 text-white py-1 px-10 p-0 rounded-lg"
+          className="bg-emerald-500 ml-4  text-white py-1 h-10 w-10 rounded-full"
         >
-          Add
+          < FaPlus  className=' flex items-center justify-center m-auto'/>
         </button>
 
         <ul className="list-none p-0 bg-slate-400 rounded-md w-1/1 py-3 mt-2 items-center">
