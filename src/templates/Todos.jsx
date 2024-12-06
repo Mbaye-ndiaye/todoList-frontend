@@ -20,7 +20,7 @@ const Todos = () => {
 
   const fetchTask = async () => {
     try {
-      const response = await axios.get(process.env.REACT_APP_API_URL + 'todos/');
+      const response = await axios.get(process.env.exemple.REACT_APP_API_URL + 'todos/');
       setTask(response.data);
     } catch (error) {
       console.log('error:', error);
@@ -32,7 +32,7 @@ const Todos = () => {
       setLoading(true);
       setError(null);
       if (inputValue.trim() !== '') {
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}todos/add`, {
+        const response = await axios.post(`${process.env.exemple.REACT_APP_API_URL}todos/add`, {
           title: inputValue,
           completed: false,
         });
@@ -51,7 +51,7 @@ const Todos = () => {
     try {
       const taskUpdate = tasks.find((task) => task.id === taskId);
       if (taskUpdate) {
-        const response = await axios.put( process.env.REACT_APP_API_URL + `${taskId}/update`, {
+        const response = await axios.put( process.env.exemple.REACT_APP_API_URL + `${taskId}/update`, {
           completed: !taskUpdate.completed,
         });
         const updatedTasks = tasks.map((task) =>
