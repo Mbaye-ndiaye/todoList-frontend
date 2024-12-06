@@ -85,7 +85,7 @@ const Todos = () => {
   return (
     <>
       <form onSubmit={handleSubmit} className="h-100 text-center justify-center p-36">
-        <h1 className="pb-4">App Todo</h1>
+        <h1 className="pb-4">App Todo 2</h1>
         {loading && <p>loading...</p>}
         {error && <p className="text-red-500">{error}</p>}
         <input
