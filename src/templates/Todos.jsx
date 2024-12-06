@@ -20,7 +20,7 @@ const Todos = () => {
 
   const fetchTask = async () => {
     try {
-      const response = await axios.get(process.env.exemple.REACT_APP_API_URL + 'todos/');
+      const response = await axios.get(process.env.REACT_APP_API_URL + 'todos/');
       setTask(response.data);
     } catch (error) {
       console.log('error:', error);
@@ -32,7 +32,7 @@ const Todos = () => {
       setLoading(true);
       setError(null);
       if (inputValue.trim() !== '') {
-        const response = await axios.post(`${process.env.exemple.REACT_APP_API_URL}todos/add`, {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}todos/add`, {
           title: inputValue,
           completed: false,
         });
@@ -51,7 +51,7 @@ const Todos = () => {
     try {
       const taskUpdate = tasks.find((task) => task.id === taskId);
       if (taskUpdate) {
-        const response = await axios.put( process.env.exemple.REACT_APP_API_URL + `${taskId}/update`, {
+        const response = await axios.put( process.env.REACT_APP_API_URL + `${taskId}/update`, {
           completed: !taskUpdate.completed,
         });
         const updatedTasks = tasks.map((task) =>
@@ -85,7 +85,7 @@ const Todos = () => {
   return (
     <>
       <form onSubmit={handleSubmit} className="h-100 text-center justify-center p-36">
-        <h1 className="pb-4">App Todo 3</h1>
+        <h1 className="pb-4">App Todo 4</h1>
         {loading && <p>loading...</p>}
         {error && <p className="text-red-500">{error}</p>}
         <input
